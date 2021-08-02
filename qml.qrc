@@ -1,0 +1,40 @@
+<RCC>
+    <qresource prefix="/">
+        <file>mediaplay.qml</file>
+        <file>images/Music_Active.svg</file>
+        <file>images/Music_Inactive.svg</file>
+        <file>images/Podcasts_Active.svg</file>
+        <file>images/Podcasts_Inactive.svg</file>
+        <file>images/Popup_Highlight.svg</file>
+        <file>images/Popup_PauseIcon.svg</file>
+        <file>images/Popup_PlayIcon.svg</file>
+        <file>images/Popup_VerticalLine.svg</file>
+        <file>images/X.svg</file>
+        <file>images/AGL_MediaPlayer_AlbumArtwork.svg</file>
+        <file>images/AGL_MediaPlayer_BackArrow.svg</file>
+        <file>images/AGL_MediaPlayer_Bluetooth_Active.svg</file>
+        <file>images/AGL_MediaPlayer_Bluetooth_Inactive.svg</file>
+        <file>images/AGL_MediaPlayer_CD_Active.svg</file>
+        <file>images/AGL_MediaPlayer_CD_Inactive.svg</file>
+        <file>images/AGL_MediaPlayer_DividingLine.svg</file>
+        <file>images/AGL_MediaPlayer_ForwardArrow.svg</file>
+        <file>images/AGL_MediaPlayer_Loop_Active.svg</file>
+        <file>images/AGL_MediaPlayer_Loop_Inactive.svg</file>
+        <file>images/AGL_MediaPlayer_Player_Pause.svg</file>
+        <file>images/AGL_MediaPlayer_Player_Play.svg</file>
+        <file>images/AGL_MediaPlayer_Playlist_Active.svg</file>
+        <file>images/AGL_MediaPlayer_Playlist_Inactive.svg</file>
+        <file>images/AGL_MediaPlayer_PlaylistToggle_Active.svg</file>
+        <file>images/AGL_MediaPlayer_PlaylistToggle_Inactive.svg</file>
+        <file>images/AGL_MediaPlayer_Radio_Active.svg</file>
+        <file>images/AGL_MediaPlayer_Radio_Inactive.svg</file>
+        <file>images/AGL_MediaPlayer_Shuffle_Active.svg</file>
+        <file>images/AGL_MediaPlayer_Shuffle_Inactive.svg</file>
+        <file>images/Albums_Active.svg</file>
+        <file>images/Albums_Inactive.svg</file>
+        <file>images/DividingLine.svg</file>
+        <file>images/GreenLine.svg</file>
+        <file>ImageButton.qml</file>
+        <file>ToggleButton.qml</file>
+    </qresource>
+</RCC>
