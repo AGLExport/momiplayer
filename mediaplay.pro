@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+
 QT += quick quickcontrols2 multimedia
 
 CONFIG += c++11
