@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>mediaplay.qml</file>
+        <file>momiplay.qml</file>
         <file>images/Music_Active.svg</file>
         <file>images/Music_Inactive.svg</file>
         <file>images/Podcasts_Active.svg</file>

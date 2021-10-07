@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     QQmlContext *context = engine.rootContext();
     context->setContextProperty("mediaFiles", mediaFiles);
-    const QUrl url(QStringLiteral("qrc:/mediaplay.qml"));
+    const QUrl url(QStringLiteral("qrc:/momiplay.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
         if (!obj && url == objUrl)
