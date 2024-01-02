@@ -49,13 +49,54 @@ ApplicationWindow {
         width: 920
         height: 1080
         clip: true
-        Image {
-	        x: 204
-	        y: 100
-	        width: 512
-	        height: 512
-            fillMode: Image.PreserveAspectCrop
-            source: player.metaData.coverArtImage ? player.metaData.coverArtImage : ''
+
+        Item {
+            id: infopanel
+            x: 30
+            y: 100
+            height :400
+            width : 920-30
+
+            ColumnLayout {
+                anchors.fill: parent
+                Label {
+                    id: title
+                    font.pixelSize: 48
+                    color: '#ffffffff'
+                    Layout.alignment: Layout.right
+                    text: "Title:   " + (player.metaData.title ? player.metaData.title : 'No Data')
+                    horizontalAlignment: Label.AlignHCenter
+                    verticalAlignment: Label.AlignVCenter
+                }
+                Label {
+                    id: artist
+                    font.pixelSize: 48
+                    color: '#ffffffff'
+                    Layout.alignment: Layout.right
+                    text: "Artist:  " + (player.metaData.contributingArtist ? player.metaData.contributingArtist : 'No Data')
+                    horizontalAlignment: Label.AlignHCenter
+                    verticalAlignment: Label.AlignVCenter
+                }
+                Label {
+                    id: audiocodec
+                    font.pixelSize: 38
+                    color: '#ffffffff'
+                    Layout.alignment: Layout.right
+                    text: "Codec:   " + (player.metaData.audioCodec ? player.metaData.audioCodec : 'No Data')
+                    horizontalAlignment: Label.AlignHCenter
+                    verticalAlignment: Label.AlignVCenter
+                }
+                Label {
+                    id: audiobitrate
+                    font.pixelSize: 38
+                    color: '#ffffffff'
+                    Layout.alignment: Layout.right
+                    text: "BitRate:  " + (player.metaData.audioBitRate ? (player.metaData.audioBitRate + 'bps') : 'No Data')
+                    horizontalAlignment: Label.AlignHCenter
+                    verticalAlignment: Label.AlignVCenter
+                }
+            }
+
         }
 
         Item {
@@ -86,24 +127,6 @@ ApplicationWindow {
                             id: loop
                             offImage: './images/AGL_MediaPlayer_Loop_Inactive.svg'
                             onImage: './images/AGL_MediaPlayer_Loop_Active.svg'
-                        }
-                    }
-                    ColumnLayout {
-                        anchors.fill: parent
-                        Label {
-                            id: title
-                            Layout.alignment: Layout.Center
-                            text: player.metaData.title ? player.metaData.title : ''
-                            horizontalAlignment: Label.AlignHCenter
-                            verticalAlignment: Label.AlignVCenter
-                        }
-                        Label {
-                            id: artist
-                            Layout.alignment: Layout.Center
-                            text: player.metaData.author ? player.metaData.author : ''
-                            horizontalAlignment: Label.AlignHCenter
-                            verticalAlignment: Label.AlignVCenter
-                            font.pixelSize: title.font.pixelSize * 0.6
                         }
                     }
                 }
