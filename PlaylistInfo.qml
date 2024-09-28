@@ -78,16 +78,16 @@ Rectangle {
         preventStealing: true
     }
 
-    FileDialog {
-        id: folderView
-        title: qsTr("Add files to playlist")
-        currentFolder: StandardPaths.standardLocations(StandardPaths.MoviesLocation)[0]
-        fileMode: FileDialog.OpenFiles
-        onAccepted: {
-            root.addFiles(files.count, folderView.selectedFiles)
-            close()
-        }
-    }
+//    FileDialog {
+//        id: folderView
+//        title: qsTr("Add files to playlist")
+//        currentFolder: StandardPaths.standardLocations(StandardPaths.MoviesLocation)[0]
+//        fileMode: FileDialog.OpenFiles
+//        onAccepted: {
+//            root.addFiles(files.count, folderView.selectedFiles)
+//            close()
+//        }
+//    }
 
     ListModel {
         id: files
@@ -109,11 +109,6 @@ Rectangle {
                 color: Config.secondaryColor
 
                 Layout.fillWidth: true
-            }
-
-            CustomButton {
-                icon.source: Config.iconSource("Add_file")
-                onClicked: folderView.open()
             }
         }
 
@@ -177,19 +172,6 @@ Rectangle {
                     text: {
                         const paths = row.path.split('/')
                         return paths[paths.length - 1]
-                    }
-                }
-
-                CustomButton {
-                    icon.source: Config.iconSource("Trash_Icon")
-                    onClicked: {
-                        const removedIndex = row.index
-                        files.remove(row.index)
-                        if (root.currentIndex === removedIndex) {
-                            root.currentFileRemoved()
-                        } else if (root.currentIndex > removedIndex) {
-                            --root.currentIndex
-                        }
                     }
                 }
             }

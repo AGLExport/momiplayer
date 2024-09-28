@@ -12,11 +12,7 @@ Item {
     implicitHeight: 40
 
     required property MediaPlayer mediaPlayer
-    property alias fullScreenButton: fullScreenButton
-    property alias settingsButton: settingsButton
     property alias isMediaSliderPressed: mediaSlider.pressed
-    property alias showSeeker: showSeekerAnim
-    property alias hideSeeker: hideSeekerAnim
 
     function getTime(time : int) {
         const h = Math.floor(time / 3600000).toString()
@@ -27,8 +23,8 @@ Item {
 
     RowLayout {
         anchors.fill: root
-        anchors.leftMargin: 10
-        anchors.rightMargin: 10
+        anchors.leftMargin: 200
+        anchors.rightMargin: 200
 
         Label {
             id: mediaTime
@@ -57,50 +53,5 @@ Item {
             text: root.getTime(root.mediaPlayer.duration)
         }
 
-        CustomButton {
-            id: settingsButton
-            icon.source: Config.iconSource("Settings_Icon")
-        }
-
-        CustomButton {
-            id: fullScreenButton
-            icon.source: Config.iconSource("FullScreen_Icon")
-        }
-    }
-
-    ParallelAnimation {
-        id: hideSeekerAnim
-        NumberAnimation {
-            target: root
-            properties: "opacity"
-            to: 0
-            duration: 1000
-            easing.type: Easing.InOutQuad
-        }
-        NumberAnimation {
-            target: root
-            properties: "anchors.bottomMargin"
-            to: -root.height
-            duration: 1000
-            easing.type: Easing.InOutQuad
-        }
-    }
-
-    ParallelAnimation {
-        id: showSeekerAnim
-        PropertyAnimation {
-            target: root
-            properties: "opacity"
-            to: 1
-            duration: 1000
-            easing.type: Easing.InOutQuad
-        }
-        PropertyAnimation {
-            target: root
-            properties: "anchors.bottomMargin"
-            to: 0
-            duration: 500
-            easing.type: Easing.InOutQuad
-        }
     }
 }

@@ -39,8 +39,9 @@ Item {
         ListView {
             id: metadataList
             anchors.fill: parent
+            spacing: 15
             model: elements
-            delegate: RowLayout {
+            delegate: ColumnLayout {
                 id: row
                 width: metadataList.width
 
@@ -49,7 +50,8 @@ Item {
 
                 Label {
                     text: row.name + ":"
-                    font.pixelSize: 16
+                    font.bold: true
+                    font.pixelSize: 20
                     color: Config.secondaryColor
 
                     Layout.preferredWidth: root.width / 2

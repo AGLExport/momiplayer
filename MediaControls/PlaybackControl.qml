@@ -19,10 +19,10 @@ Item {
     property url playlistIcon: !root.isPlaylistVisible ? Config.iconSource("Playlist_Icon") : Config.iconSource("Playlist_Active", false)
     property url shuffleIcon: !root.isPlaylistShuffled ? Config.iconSource("Shuffle_Icon") : Config.iconSource("Shuffle_Active", false)
 
-    property alias volume: audio.volume
-    property alias playbackRate: rate.playbackRate
+    //property alias volume: audio.volume
+    //property alias playbackRate: rate.playbackRate
     property alias playlistButton: playlistButton
-    property alias menuButton: menuButton
+    //property alias menuButton: menuButton
 
     signal playNextFile()
     signal playPreviousFile()
@@ -42,28 +42,29 @@ Item {
     Item {
         anchors.fill: root
 
+        Item {
+           x: 50
+           y: 0
+           height: 100
+
+            CustomButton {
+                id: playlistButton
+                anchors.centerIn: parent
+                icon.source: root.playlistIcon
+            }
+        }
+
         RowLayout {
             id: playerButtons
             anchors.fill: parent
 
-            Item {
-                CustomButton {
-                    id: menuButton
-                    icon.source: Config.iconSource("Menu_Icon")
-                    visible: Config.isMobileTarget
-                    anchors.centerIn: parent
-                }
 
-                Layout.fillWidth: true
-                Layout.minimumWidth: 40
-                Layout.maximumWidth: 95
-            }
 
-            PlaybackRateControl {
-                id: rate
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-            }
+            //PlaybackRateControl {
+            //    id: rate
+            //    Layout.fillHeight: true
+            //    Layout.fillWidth: true
+            //}
 
             Item {
                 Layout.fillWidth: true
@@ -143,23 +144,6 @@ Item {
                 Layout.fillWidth: true
             }
 
-            AudioControl {
-                id: audio
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-            }
-
-            Item {
-                Layout.fillWidth: true
-                Layout.minimumWidth:40
-                Layout.maximumWidth: 95
-
-                CustomButton {
-                    id: playlistButton
-                    anchors.centerIn: parent
-                    icon.source: root.playlistIcon
-                }
-            }
         }
     }
 

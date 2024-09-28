@@ -16,7 +16,6 @@ Rectangle {
     border.color: "lightgrey"
     radius: 10
 
-    property alias tracksInfo: tracksInfo
     property alias metadataInfo: metadataInfo
     required property MediaPlayer mediaPlayer
     required property int selectedAudioTrack
@@ -28,57 +27,25 @@ Rectangle {
         preventStealing: true
     }
 
-    TabBar {
+    Item {
         id: bar
-        width: root.width
-        contentHeight: 60
+        anchors.fill: root
+        anchors.margins: 30
 
-        Repeater {
-            model: [qsTr("Metadata"), qsTr("Tracks"), qsTr("Theme")]
+        Label {
+            id: label
+            font.bold: true
+            font.pixelSize: 20
+            text: qsTr("Metadata")
+            color: Config.secondaryColor
 
-            TabButton {
-                id: tab
-                required property int index
-                required property string modelData
-                property color shadowColor:  bar.currentIndex === index ? "#41CD52" : "black"
-                property color textColor:  bar.currentIndex === index ? "#41CD52" : Config.secondaryColor
+            Layout.fillWidth: true
+       }
 
-                background: Rectangle {
-                    opacity: 0.15
-                    gradient: Gradient {
-                        GradientStop { position: 0.0; color: "transparent" }
-                        GradientStop { position: 0.5; color: "transparent" }
-                        GradientStop { position: 1.0; color: tab.shadowColor }
-                    }
-                }
-
-                contentItem: Label {
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
-                    text: tab.modelData
-                    font.pixelSize: 20
-                    color: tab.textColor
-                }
-            }
-        }
-    }
-
-    StackLayout {
-        width: root.width
-        anchors.top: bar.bottom
-        anchors.bottom: root.bottom
-        currentIndex: bar.currentIndex
-
-        MetadataInfo { id: metadataInfo }
-
-        TracksInfo {
-            id: tracksInfo
-            mediaPlayer: root.mediaPlayer
-            selectedAudioTrack: root.selectedAudioTrack
-            selectedVideoTrack: root.selectedVideoTrack
-            selectedSubtitleTrack: root.selectedSubtitleTrack
-        }
-
-        ThemeInfo { id: themeInfo }
+       MetadataInfo {
+           id: metadataInfo
+           anchors.fill: bar
+           anchors.topMargin: label.height + 0
+       }
     }
 }
